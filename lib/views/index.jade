@@ -1,0 +1,34 @@
+html
+
+    head
+        script(src="/socket.io/socket.io.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js")
+        script(src="/js/socketio.js")
+        script(src="/js/chat.js")
+        link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
+        link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css")
+    
+    
+    body(ng-app="chat", ng-controller="chatroom")
+        .container
+            h3.row {{ nick }}
+            
+            hr
+            
+            .row
+                p(ng-repeat="msg in messages") {{ msg.user }}: {{ msg.message }}
+
+            hr
+            
+            .row
+                form(ng-submit="sendMessage()" ng-show="nick_set").form-inline
+                    .form-group
+                        input(ng-model="message").form-control
+                    .form-group
+                        input(type="submit" value="Send").form-control
+                
+                form(ng-submit="setNick()" ng-hide="nick_set").form-inline
+                    .form-group
+                        input(ng-model="nicktemp").form-control
+                    .form-group
+                        input(type="submit" value="Set nickname").form-control

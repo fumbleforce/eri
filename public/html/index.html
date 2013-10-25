@@ -1,0 +1,27 @@
+<html ng-app="chat" ng-controller="chatroom">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
+    <script src="/public/js/socketio.js"></script>
+    <script src="/public/js/chat.js"></script>
+</head>
+<body ng-app="chat">
+    <h1 ng-model="nick"></h1>
+    
+    <div id="chatroom">
+        <ol ng-repeat="msg in messages">
+            <li>{{ msg }}</li>
+        </ol>
+    </div>
+
+    <form ng-submit="sendMessage()">
+        <input ng-model="message"></input>
+        <input type="submit" value="Send"></input>
+    </div>
+    
+    <form ng-submit="setNick()">
+        <input ng-model="nicktemp"></input>
+        <input type="submit" value="Set nickname"></input>
+    </div>
+
+</body>
+</html>
