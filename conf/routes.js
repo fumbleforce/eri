@@ -28,7 +28,7 @@ module.exports.ioRouter = function(client) {
     
     client.on('send:message', function(msg) {
         var msg_obj = {message:msg, user:client.nick}
-        chat.push(JSON.stringify(msg_obj));
+        chat.push(msg_obj);
         client.broadcast.emit('get:message', msg_obj);
     });
     
