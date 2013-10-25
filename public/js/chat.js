@@ -26,6 +26,9 @@ var chatApp = angular.module('chat', [])
     
     
     $scope.sendMessage = function() {
+    
+        if($scope.message === '') return;
+    
         socket.emit('send:message', $scope.message);
         
         $scope.messages.push({
@@ -35,7 +38,9 @@ var chatApp = angular.module('chat', [])
         $scope.message = '';
     }
     
-    
+    $scope.unsetNick = function() {
+        $scope.nick_set = false;
+    };
     
     $scope.setNick = function() {
         socket.emit('set:nick', $scope.nicktemp)
@@ -49,7 +54,11 @@ var chatApp = angular.module('chat', [])
 
 
 
-
+.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
 
 
 

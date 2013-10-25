@@ -39,7 +39,7 @@ module.exports.ioRouter = function(client) {
     
     
     client.on('disconnect', function () { 
-        chat.push('Client '+client.nick+' disconnected'); 
+        chat.push({user:'server', message:'Client '+client.nick+' disconnected'}); 
     });
 
 };

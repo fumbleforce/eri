@@ -7,28 +7,27 @@ html
         script(src="/js/chat.js")
         link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
         link(rel="stylesheet", href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css")
-    
+        link(rel="stylesheet", href="/css/styles.css")
     
     body(ng-app="chat", ng-controller="chatroom")
         .container
-            h3.row {{ nick }}
-            
-            hr
-            
+            br
             .row
-                p(ng-repeat="msg in messages") {{ msg.user }}: {{ msg.message }}
-
+                .chatwindow
+                    .clearfix.message(ng-repeat="msg in messages | reverse")
+                        .col-lg-2.pull-left.well-sm.well.userLabel(ng-class="{server:'red'}[msg.user]") {{ msg.user }}
+                        .col-lg-10.pull-left.well-sm.well.userMessage {{ msg.message }}
             hr
             
             .row
                 form(ng-submit="sendMessage()" ng-show="nick_set").form-inline
                     .form-group
-                        input(ng-model="message").form-control
-                    .form-group
-                        input(type="submit" value="Send").form-control
+                        .input-group
+                            span.input-group-addon.hover(ng-click="unsetNick()") {{ nick }}
+                            input(ng-model="message", placeholder="message").form-control
                 
                 form(ng-submit="setNick()" ng-hide="nick_set").form-inline
-                    .form-group
+                    .form-group.margin-right
                         input(ng-model="nicktemp").form-control
                     .form-group
-                        input(type="submit" value="Set nickname").form-control
+                        input(type="submit" value="Set nickname", placeholder="nickname").form-control
