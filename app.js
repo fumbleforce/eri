@@ -31,7 +31,6 @@ console.log('configuring');
 app.configure('development', function(){ config.setDevConf(app); });
 app.configure('production', function(){ config.setProdConf(app); });
 app.configure('test', function(){ config.setTestConf(app); });
-app.chat = [{user:'server', message:'welcome!'}];
 
 console.log('routing');
 // Routing setup
