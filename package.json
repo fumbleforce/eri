@@ -15,23 +15,9 @@
   "dependencies": {
     "express": "latest",
     "socket.io": "latest",
-    "mongoose": "latest",
     "jade": "latest",
     "stylus": "latest",
     "underscore":"latest",
-    "q":"latest",
     "node-uuid":"latest"
-  },
-    "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-jade": "*",
-    "grunt-contrib-stylus": "*",
-    "grunt-contrib-watch": "~0.5.3",
-    "supertest":"*",
-    "chai":"*",
-    "superagent":"*"
   }
 }
